@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Dell XPS 15",
+        "img": "https://i.ibb.co/CHMRq8P/ITHelp.png",
+        "desc": "The worthy competitor of Macbook remains the same. The Dell XPS 15 (2020)is op ",
+        "price": "2,40,000",
+        "quan": 100,
+        "supplier": "hobaib express"
+    },
+    {
+        "name": "HP Envy 13t",
+        "img": "https://i.ibb.co/3Cp7ynf/newBooks.png",
+        "desc": "The worthy competitor of Macbook remains the same. The Dell XPS 15 (2020)is an  ",
+        "price": "1,35,000",
+        "quan": 100,
+        "supplier": "hobaib express"
+    },
+    {
+        "name": "HP OMEN 15",
+        "img": "https://i.ibb.co/NCgbwQm/music-Lessons.png",
+        "desc": "The worthy competitor of Macbook remains the same. The Dell XPS 15 (2020)is an amalg ",
+        "price": "40,000",
+        "quan": 100,
+        "supplier": "hobaib express"
+    }
+]

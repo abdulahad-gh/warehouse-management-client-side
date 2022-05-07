@@ -1,11 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Banner from './Banner';
+import Items from './Items';
 
 const Home = () => {
     return (
         <>
             <Banner />
+
+            <Items />
+
+
         </>
 
     );
