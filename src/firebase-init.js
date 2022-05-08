@@ -1,17 +1,17 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth"
+import { getAuth } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyC7bc5-tz6k1g_vDwD-_czkF51kgpUHFxw",
-    authDomain: "laptops-warehouse-af6b1.firebaseapp.com",
-    projectId: "laptops-warehouse-af6b1",
-    storageBucket: "laptops-warehouse-af6b1.appspot.com",
-    messagingSenderId: "552999743934",
-    appId: "1:552999743934:web:440418807d661cc1a849ef"
+    apiKey: "AIzaSyAsDFXHoyQs4AWtiVnnEmW0g10jakg0E6s",
+    authDomain: "laptops-warehouse-14e82.firebaseapp.com",
+    projectId: "laptops-warehouse-14e82",
+    storageBucket: "laptops-warehouse-14e82.appspot.com",
+    messagingSenderId: "615873781732",
+    appId: "1:615873781732:web:6b822b13502212df3471f1"
 };
 
 // Initialize Firebase
