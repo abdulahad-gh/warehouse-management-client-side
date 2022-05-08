@@ -7,6 +7,7 @@ import SignUp from './pages/Auth/SignUp';
 import Home from './pages/Home/Home';
 import ManageItems from './pages/ManageItems';
 import MyItems from './pages/MyItems';
+import PageNotFound from './pages/PageNotFound';
 import Footer from './pages/shared/Footer';
 import Inventory from './pages/shared/Inventory/Inventory';
 import Navbar from './pages/shared/Navbar';
@@ -23,6 +24,7 @@ function App() {
         <Route path='signin' element={<Signin />} />
         <Route path='signin/signup' element={<SignUp />} />
         <Route path='inventory' element={<RequireAuth><Inventory /></RequireAuth>} />
+        <Route path='*' element={<PageNotFound />} />
 
 
       </Routes>
