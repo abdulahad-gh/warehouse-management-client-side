@@ -4,9 +4,12 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import auth from '../../firebase-init';
 
 function RequireAuth({ children }) {
-    const [user] = useAuthState(auth)
+    const [user, loading] = useAuthState(auth)
     let location = useLocation();
+    if (loading) {
 
+        return
+    }
     if (!user) {
         return <Navigate to="/signin" state={{ from: location }} replace />;
     }

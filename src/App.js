@@ -18,12 +18,13 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/home' element={<Home />} />
         <Route path='manageitems' element={<RequireAuth><ManageItems /></RequireAuth>} />
         <Route path='additem' element={<RequireAuth><AddItem /></RequireAuth>} />
         <Route path='myitems' element={<RequireAuth><MyItems /></RequireAuth>} />
         <Route path='signin' element={<Signin />} />
         <Route path='signin/signup' element={<SignUp />} />
-        <Route path='inventory' element={<RequireAuth><Inventory /></RequireAuth>} />
+        <Route path='inventory/:id' element={<RequireAuth><Inventory /></RequireAuth>} />
         <Route path='*' element={<PageNotFound />} />
 
 
