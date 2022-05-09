@@ -6,7 +6,7 @@ const Inventory = () => {
     const [inventory, setInventory] = useState({});
 
     useEffect(() => {
-        const url = `http://localhost:5000/inventories/${id}`;
+        const url = `https://polar-atoll-56394.herokuapp.com/inventories/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setInventory(data))
@@ -18,14 +18,18 @@ const Inventory = () => {
         e.preventDefault()
         const quan = e.target.quan.value;
         const updateQuan = { quan }
-        const url = `http://localhost:5000/inventories/${id}`;
+        const url = `https://polar-atoll-56394.herokuapp.com/inventories/${id}`;
         fetch(url, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
             },
             body: JSON.stringify(updateQuan)
-        })
+
+        }
+
+        )
+
     }
 
     return (

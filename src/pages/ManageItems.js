@@ -1,23 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import useData from '../Hooks/useData';
 
 const ManageItems = () => {
-    const [items, setItems] = useData();
-
+    const [laptops, setLaptops] = useState([])
+    useEffect(() => {
+        fetch('https://polar-atoll-56394.herokuapp.com/inventories')
+            .then(res => res.json())
+            .then(data => setLaptops(data))
+    }, [])
     const handleDelete = id => {
-        const proceed = window.confirm('Are you sure you want to delete?');
+        const proceed = window.confirm('Are you sure delete this inventory?');
         if (proceed) {
-            console.log('deleting user with id, ', id);
-            const url = `http://localhost:5000/inventories/${id}`;
+            const url = `https://polar-atoll-56394.herokuapp.com/inventories/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
                 .then(data => {
                     if (data.deletedCount > 0) {
-                        const remaining = items.filter(user => user._id !== id);
-                        setItems(remaining);
+                        const remaining = laptops.filter(items => items._id !== id);
+                        setLaptops(remaining);
                     }
                 })
         }
@@ -50,22 +53,22 @@ const ManageItems = () => {
                         </tr>
                     </thead>
                     {
-                        items.map(item => <tbody>
+                        laptops.map(laptop => <tbody>
                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                                    {item.name}
+                                    {laptop.name}
                                 </th>
                                 <td class="px-6 py-4">
-                                    {item.price}
+                                    {laptop.price}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {item.supplier}
+                                    {laptop.supplier}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {item.quan}
+                                    {laptop.quan}
                                 </td>
                                 <td class="px-6 py-4 text-right">
-                                    <button onClick={handleDelete} class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</button>
+                                    <button onClick={() => handleDelete(laptop._id)} class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</button>
                                 </td>
                             </tr>
 

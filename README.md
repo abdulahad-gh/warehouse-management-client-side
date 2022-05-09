@@ -1,12 +1,21 @@
-# Getting Started with Create React App
+# Laptops WareHouse project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+project live site link=> [Laptops WareHouse](https://laptops-warehouse.netlify.app/).
 
-## Available Scripts
+## short desc
+This is laptops warehouse website. you can see available stock from this website,and also add inventory,manage inventory.see more to visit [Laptops WareHouse](https://laptops-warehouse.netlify.app/).
 
 In the project directory, you can run:
 
-### `npm start`
+### project features and functionality
+* add inventory.
+* remove inventory.
+* if you want update inventory.
+* firebase auth system
+* mongodb
+* using tailwind css
+* social login with github
+* using toast
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.

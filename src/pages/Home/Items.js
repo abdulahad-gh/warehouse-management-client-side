@@ -8,7 +8,7 @@ const Items = () => {
     const navigateToInventory = id => {
         navigate(`/inventory/${id}`)
     }
-
+    const showThreeLaptops = laptops.slice(0, 3)
 
     return (
 
@@ -16,7 +16,7 @@ const Items = () => {
             <h2 className='text-center text-3xl mb-16'>Inventory items</h2>
             <div className='grid md:grid-cols-3 justify-items-center gap-y-10 px-4'>
                 {
-                    laptops.map(laptop =>
+                    showThreeLaptops.map(laptop =>
                         <div class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
 
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { toast } from 'react-toastify';
 
 const AddItem = () => {
 
@@ -14,7 +15,7 @@ const AddItem = () => {
         const item = { name, desc, price, quan, supplier, img };
 
         // send data to the server
-        fetch('http://localhost:5000/inventories', {
+        fetch('https://polar-atoll-56394.herokuapp.com/inventories', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -23,8 +24,7 @@ const AddItem = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log('success', data);
-                alert(' added successfully!!!');
+                toast(' added inventory successfully.');
                 e.target.reset();
             })
     }

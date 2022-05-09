@@ -13,15 +13,14 @@ const SignUp = () => {
         password: '',
         confirmPass: ''
     })
-    const [createUserWithEmailAndPassword, user, loading, hookError] = useCreateUserWithEmailAndPassword(auth)
+    const [createUserWithEmailAndPassword, user, loading, hookError] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true })
     const [errors, setErrors] = useState({
         email: '',
         password: '',
     })
-    //password show
-    const [passShow, setPassShow] = useState(false)
 
-
+    const navigate = useNavigate()
+    const location = useLocation()
     const handleUserSignUpEmail = e => {
         const emailRegex = /\S+@\S+\.\S+/;
         if (emailRegex.test(e.target.value)) {
@@ -86,8 +85,7 @@ const SignUp = () => {
         toast('account created')
 
     }
-    const navigate = useNavigate()
-    const location = useLocation()
+
     const from = location.state?.from?.pathname || "/"
     useEffect(() => {
         if (user) {

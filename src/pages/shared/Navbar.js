@@ -16,6 +16,7 @@ const Navbar = () => {
                     <Link to='/' className="hover:bg-gray-200 py-4 px-6">Home</Link>
                     <Link to='#item' className="hover:bg-gray-200 py-4 px-6">items</Link>
                     <Link to='#Client' className="hover:bg-gray-200 py-4 px-6">Client</Link>
+                    <Link to='blog' className="hover:bg-gray-200 py-4 px-6">Blog</Link>
                     {user && <Link to='manageitems' className="hover:bg-gray-200 py-4 px-6 w-full">Manage Items</Link>}
                     {user && <Link to='additem' className="hover:bg-gray-200 py-4 px-6 w-full">Add Item</Link>}
                     {user && <Link to='myitems' className="hover:bg-gray-200 py-4 px-6 w-full">My Items</Link>}
