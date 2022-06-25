@@ -1,24 +1,30 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
+import useLoading from '../../../Hooks/useLoading';
 
 const Inventory = () => {
+    useLoading(true)
     const { id } = useParams();
+    const [load, setLoad] = useState(false);
     const [inventory, setInventory] = useState({});
+    const [recall, setRecall] = useState(false);
+
 
     useEffect(() => {
-        const url = `https://polar-atoll-56394.herokuapp.com/inventories/${id}`;
+        const url = `https://sheltered-dusk-38302.herokuapp.com/inventories/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setInventory(data))
-    }, [])
+    }, [id, recall])
 
 
 
     const handleUpdateQuan = e => {
+        setLoad(true)
         e.preventDefault()
         const quan = e.target.quan.value;
         const updateQuan = { quan }
-        const url = `https://polar-atoll-56394.herokuapp.com/inventories/${id}`;
+        const url = `https://sheltered-dusk-38302.herokuapp.com/inventories/${id}`;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -29,11 +35,23 @@ const Inventory = () => {
         }
 
         )
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    setRecall(!recall)
+                    setTimeout(() => {
+
+                        setLoad(false)
+                    }, 1000)
+
+
+                }
+            })
 
     }
 
     return (
-        <div className='h-screen flex flex-col	 justify-center mb-60 '>
+        <div className='h-screen flex flex-col	 justify-center items-center mt-20'>
             <h2 className='text-center text-3xl mt-20 mb-10'>inventory Detail page</h2>
 
             <div className='flex justify-center'>
@@ -63,7 +81,7 @@ const Inventory = () => {
                             <div className='flex flex-col px-4 items-center gap-4 md:flex-row	'>
                                 <input type="number" name="quan" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Restock Quantity" required="" />
 
-                                <button type="submit" class="text-white shrink w-64 bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Restock the items</button>
+                                <button type="submit" class="text-white shrink w-64 bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">{load ? 'Restock...' : 'Restock the items'}</button>
                             </div>
 
                         </form>

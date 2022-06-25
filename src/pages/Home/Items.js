@@ -1,23 +1,28 @@
 import React, { useState } from 'react';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import useData from '../../Hooks/useData';
+import useLoading from '../../Hooks/useLoading';
 
 const Items = () => {
     const [laptops] = useData();
+    // const [loading, setLoading] = useState(false)
     const navigate = useNavigate();
     const navigateToInventory = id => {
         navigate(`/inventory/${id}`)
+    }
+    const useLoadingHandle = () => {
+        useLoading(true)
     }
     const showThreeLaptops = laptops.slice(0, 3)
 
     return (
 
-        <div id='homeitem' className='mt-20 md:mt-24'>
+        <div id='home#item' className='mt-20 md:mt-24'>
             <h2 className='text-center text-3xl mb-16'>Inventory items</h2>
-            <div className='grid md:grid-cols-3 justify-items-center gap-y-10 px-4'>
+            <div className='grid md:grid-cols-3 justify-center gap-5 px-2'>
                 {
                     showThreeLaptops.map(laptop =>
-                        <div class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+                        <div class="lg:max-w-lg bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
 
 
                             <img class="rounded h-60 w-full object-cover" src={laptop?.img} alt="lapt" />
@@ -39,7 +44,7 @@ const Items = () => {
                     )
                 }
             </div>
-            <Link to="/manageitems" class="mt-4 block mx-auto text-white text-center shrink w-64 bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5  hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Manage Inventories</Link>
+            <Link to="/manageitems" onClick={useLoadingHandle} class="mt-4 block mx-auto text-white text-center shrink w-40 bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-2 py-2.5  hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Manage Inventories</Link>
         </div >
 
 

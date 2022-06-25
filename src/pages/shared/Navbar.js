@@ -9,12 +9,12 @@ const Navbar = () => {
     return (
 
 
-        <nav className="fixed top-0 left-0 bg-white w-full shadow">
-            <div className="container m-auto flex justify-between items-center text-gray-700">
-                <h1 className="pl-8 py-4 text-xl font-bold">Laptops Warehouse</h1>
+        <nav className="fixed top-0 left-0 bg-white w-full shadow bg-white z-50">
+            <div className=" m-auto flex justify-between items-center text-gray-700">
+                <h1 className="pl-8 py-4 text-xl font-bold bg-white">Laptops Warehouse</h1>
                 <ul className="hidden md:flex items-center pr-10     text-base font-semibold cursor-pointer">
                     <Link to='/' className="hover:bg-gray-200 py-4 px-6">Home</Link>
-                    <Link to='#item' className="hover:bg-gray-200 py-4 px-6">items</Link>
+                    <Link to='home#item' className="hover:bg-gray-200 py-4 px-6">items</Link>
                     <Link to='#Client' className="hover:bg-gray-200 py-4 px-6">Client</Link>
                     <Link to='blog' className="hover:bg-gray-200 py-4 px-6">Blog</Link>
                     {user && <Link to='manageitems' className="hover:bg-gray-200 py-4 px-6 w-full">Manage Items</Link>}
@@ -31,7 +31,7 @@ const Navbar = () => {
                     <div className="w-5 h-1 bg-gray-600 mb-1"></div>
                     <div className="w-5 h-1 bg-gray-600"></div>
                     <div className="absolute top-0 -right-full h-screen w-8/12 bg-white border opacity-0
-      group-focus:right-0 group-focus:opacity-100 transition-all duration-300">
+                group-focus:right-0 group-focus:opacity-100 transition-all duration-300">
                         <ul className="flex flex-col items-center w-full text-base cursor-pointer pt-10">
                             <Link to='/' className="hover:bg-gray-200 py-4 px-6 w-full">Home</Link>
                             <Link to='#item' className="hover:bg-gray-200 py-4 px-6 w-full">items</Link>

@@ -79,19 +79,17 @@ const SignUp = () => {
 
     const handleCreateUser = e => {
         e.preventDefault()
-
-
         createUserWithEmailAndPassword(userSignUpInfo.email, userSignUpInfo.password)
         toast('account created')
 
     }
-
+    console.log(user);
     const from = location.state?.from?.pathname || "/"
     useEffect(() => {
         if (user) {
             navigate(from)
         }
-    }, [user])
+    }, [user, from, navigate])
 
 
 

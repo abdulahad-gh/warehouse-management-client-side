@@ -1,5 +1,4 @@
 import React from 'react';
-import { ToastContainer } from 'react-toastify';
 import Banner from './Banner';
 import Client from './Client';
 import Contact from './Contact';
@@ -12,7 +11,6 @@ const Home = () => {
             <Items />
             <Client />
             <Contact />
-            <ToastContainer />
 
 
         </>

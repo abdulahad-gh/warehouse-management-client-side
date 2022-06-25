@@ -1,11 +1,21 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Footer = () => {
     const date = new Date()
     const year = date.getFullYear()
+    const { pathname } = useLocation()
+    console.log(pathname, pathname.includes('inventory'))
+    if (pathname.includes('inventory')) {
+        document.getElementById('footer').style.marginTop = '240px'
+    }
+
+    // else {
+    //     document.getElementById('footer').style.marginTop = '100px'
+
+    // }
     return (
-        <div className='dark:bg-gray-800 text-white md:flex text-center justify-around mt-5 md:p-4 '>
+        <div id='footer' className='dark:bg-gray-800 text-white md:flex text-center justify-around md:p-4 top-100 w-full  absolute '>
 
 
             <div>

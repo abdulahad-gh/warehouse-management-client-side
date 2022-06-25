@@ -12,6 +12,8 @@ import PageNotFound from './pages/PageNotFound';
 import Footer from './pages/shared/Footer';
 import Inventory from './pages/shared/Inventory/Inventory';
 import Navbar from './pages/shared/Navbar';
+import { ToastContainer } from 'react-toastify';
+
 
 function App() {
   return (
@@ -33,6 +35,8 @@ function App() {
       </Routes>
 
       <Footer />
+      <ToastContainer />
+
     </>
   );
 }
